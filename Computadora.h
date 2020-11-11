@@ -66,6 +66,14 @@ public:
     {
         return NombreEquipo == p.NombreEquipo;
     }
+    bool operator<(const Computadora& C)
+    {
+        return NombreEquipo < C.NombreEquipo;
+    }
+    bool operator<(const Computadora& C) const
+    {
+        return NombreEquipo < C.NombreEquipo;
+    }
 };
 
 

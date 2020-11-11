@@ -1,5 +1,6 @@
 #include "Laboratorio.h"
 #include <fstream>
+#include <algorithm>
 
 Laboratorio::Laboratorio()
 {
@@ -105,5 +106,50 @@ void Laboratorio::recuperar()
         }
         
     }
-     
+    archivo.close();
+}
+
+void Laboratorio::insertar(const Computadora &C, size_t pos)
+{
+    Computadoras.insert(Computadoras.begin()+pos, C);
+}
+
+size_t Laboratorio::size()
+{
+    return Computadoras.size();
+}
+
+void Laboratorio::inicializar(const Computadora &C, size_t n)
+{
+    Computadoras = vector<Computadora>(n, C);
+}
+
+void Laboratorio::eliminar(size_t pos)
+{
+    Computadoras.erase(Computadoras.begin()+pos);
+}
+
+void Laboratorio::ordenar()
+{
+    sort(Computadoras.begin(), Computadoras.end());
+}
+
+Computadora* Laboratorio::buscar(const Computadora &C)
+{
+    auto it = find(Computadoras.begin(), Computadoras.end(), C);
+    //vector<Computadora>::iterador = auto
+
+    if (it == Computadoras.end())
+    {
+        return nullptr;
+    }
+    else 
+    {
+        return &(*it);
+    }
+}
+
+void Laboratorio::borrar_ultimo()
+{
+     Computadoras.pop_back();           
 }
