@@ -151,5 +151,12 @@ Computadora* Laboratorio::buscar(const Computadora &C)
 
 void Laboratorio::borrar_ultimo()
 {
-     Computadoras.pop_back();           
+    if(Computadoras.empty())
+    {
+        cout << "lista vacia..."<<endl;
+    }
+    else{
+        Computadoras.pop_back();   
+    }
+             
 }
